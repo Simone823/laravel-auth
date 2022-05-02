@@ -37,7 +37,17 @@
                     <td>{{$element->publication_date}}</td>
                     <td><a href="http://">Visualizza</a></td>
                     <td><a href="http://">Modifica</a></td>
-                    <td><a href="http://">Elimina</a></td>
+                    <td>
+                        <form action="{{route('admin.posts.destroy', $element)}}" method="POST">
+                            {{-- Key --}}
+                            @csrf
+                            {{-- Method delete --}}
+                            @method('DELETE')
+
+                            {{-- BTN delete --}}
+                            <button class="btn btn-danger" type="submit">Elimina</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
     
