@@ -25,7 +25,7 @@ class PostSeeder extends Seeder
             $posts->slug = Str::slug($posts->title, '-');
             $posts->description = $faker->paragraphs(2, true);
             $posts->image = $faker->imageUrl('500', '500', true);
-            $posts->publication_date = $faker->date();
+            $posts->publication_date = $faker->randomElement([null, $faker->date()]);
             $posts->save();
         }
     }
