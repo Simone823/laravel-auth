@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('slug', 250)->unique();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->date('publication_date');
+            $table->date('publication_date')->nullable();
             $table->timestamps();
         });
     }
