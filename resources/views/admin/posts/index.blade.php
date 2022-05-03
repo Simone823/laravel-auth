@@ -34,9 +34,11 @@
                             <img src="{{$element->image}}" alt="">
                         </figure>
                     </td>
-                    <td>{{$element->publication_date}}</td>
-                    <td><a href="http://">Visualizza</a></td>
-                    <td><a href="http://">Modifica</a></td>
+                    <td>{{$element->publication_date == null ? 'null' : $element->publication_date}}</td>
+                    {{-- <td><a href="http://">Visualizza</a></td> --}}
+                    <td>
+                        <a class="btn btn-warning" href="http://">Modifica</a>
+                    </td>
                     <td>
                         <form action="{{route('admin.posts.destroy', $element)}}" method="POST">
                             {{-- Key --}}
@@ -44,7 +46,7 @@
                             {{-- Method delete --}}
                             @method('DELETE')
 
-                            {{-- BTN delete --}}
+                            {{-- BTN submit delete --}}
                             <button class="btn btn-danger" type="submit">Elimina</button>
                         </form>
                     </td>
